@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izza Aly Maulana | Mechatronics & IoT Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-color: #f8f9fa; /* White-Blue Theme (Default) */
+            --surface-color: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #555555;
+            --accent-blue: #3b82f6;
+            --accent-hover: #2563eb;
+            --border-color: #e5e7eb;
+            --skill-tag-bg: #e5e7eb;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212; /* Black-Blue Theme */
+            --surface-color: #1e1e1e;
+            --text-primary: #f8f9fa;
+            --text-secondary: #a1a1aa;
+            --accent-blue: #3b82f6;
+            --accent-hover: #2563eb;
+            --border-color: #3f3f46;
+            --skill-tag-bg: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--surface-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5%;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            background-color: var(--surface-color);
+            /* Uncomment and replace URL below to add your blurred background image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('your-photo-blurred.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: background 0.3s;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff; /* Tambahkan baris ini agar judul selalu putih */
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: #f8f9fa; /* Ubah baris ini agar deskripsi juga berwarna putih terang */
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* About & Skills */
+        #about {
+            text-align: center;
+            background-color: var(--bg-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background-color: var(--skill-tag-bg);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: var(--surface-color);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .exp-card {
+            background-color: var(--bg-color);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: background 0.3s;
+        }
+
+        .exp-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .exp-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .exp-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: var(--bg-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            background-color: #ddd; /* Placeholder for transparent images */
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Project Box */
+        .featured-project {
+            background-color: var(--surface-color);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+            transition: background 0.3s;
+        }
+
+        .featured-project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+        
+        .featured-project p {
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background-color: var(--surface-color);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem; /* Memberikan jarak antar ikon */
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 2.5rem; /* Ukuran ikon diperbesar */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-5px); /* Efek melompat kecil saat di-hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s;
+        }
+
+/* Gaya dasar tombol burger (disembunyikan di laptop) */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .hamburger:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block; /* Munculkan tombol burger di HP */
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%; /* Turun di bawah navbar */
+                left: 0;
+                width: 100%;
+                background-color: var(--surface-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                
+                /* Sembunyikan menu secara default */
+                display: none; 
+            }
+
+            /* Class ini akan ditambahkan oleh JavaScript saat tombol diklik */
+            .nav-links.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 1rem 0;
+                font-size: 1.2rem;
+            }
+
+            .theme-toggle {
+                margin: 1rem 0;
+            }
+            
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <nav>
+        <div class="logo">IzzaAM Website</div>
+        
+        <button class="hamburger" id="hamburger">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <span id="themeToggleText">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <h1>Mechatronics Graduate, Future IoT Developer.</h1>
+        <p>Bridging mechanical systems with smart solutions. Passionate about Internet of Things (IoT), microcontrollers, and industrial automation.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--text-secondary);">
+            Hello, I'm Izza Aly Maulana. A Mechatronics Engineering graduate from SMKN 7 Semarang. I am highly passionate about connecting hardware and software to create efficient automated systems. Alongside my technical background in IoT, Arduino, and ESP32, I have passed the JLPT N5 and am currently aiming for N4. I am ready to tackle industrial challenges!
+        </p>
+        <div class="skills-container">
+            <span class="skill-tag">Internet of Things (IoT)</span>
+            <span class="skill-tag">Arduino (C/C++)</span>
+            <span class="skill-tag">ESP32 & NodeMCU</span>
+            <span class="skill-tag">Industrial Automation</span>
+            <span class="skill-tag">CAD Modeling</span>
+            <span class="skill-tag">Japanese (JLPT N5)</span>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience & Skills Focus</h2>
+        <div class="exp-grid">
+            <div class="exp-card">
+                <h3>Maintenance Intern</h3>
+                <h4>PT Kencana Gemilang (Miyako) | Tangerang</h4>
+                <p><strong>Nov 2024 - Mar 2025</strong><br>Conducted maintenance, troubleshooting, and supported the operational readiness of industrial manufacturing machinery.</p>
+            </div>
+            
+            <div class="exp-card">
+                <h3>Programmable Logic Controllers (PLC)</h3>
+                <h4>Industrial Automation</h4>
+                <p>Practical experience in programming and configuring industrial control systems using Omron and Mitsubishi PLCs, as well as HMI setups.</p>
+            </div>
+
+            <div class="exp-card">
+                <h3>CAD Drawing & 3D Modeling</h3>
+                <h4>Mechanical Design</h4>
+                <p>Skilled in utilizing AutoCAD and Autodesk Inventor to design precise 3D mechanical components and power transmission assemblies.</p>
+            </div>
+
+            <div class="exp-card">
+                <h3>Embedded Systems (Arduino & ESP32)</h3>
+                <h4>Hardware Programming</h4>
+                <p>Developing smart, internet-connected devices. Experienced in integrating sensors, motor drivers, and establishing Wi-Fi connectivity for IoT projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        
+        <div class="featured-project" style="margin-bottom: 3rem;">
+            <h3>Featured Project: ESP32-Based Smart RC Car</h3>
+            <p><strong>Description:</strong> Designed and built a wireless remote control car. The system utilizes an ESP32 microcontroller acting as a local web server, allowing users to control the car's movements in real-time with low latency directly from a smartphone browser. This project demonstrates hardware integration (chassis, motor drivers, actuators) with custom firmware for responsive IoT applications.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="caster.png" alt="Caster CAD model">
+                <h3>Caster</h3>
+                <p>A 3D CAD model of a caster wheel, designed for mechanical systems and equipment assembly.</p>
+            </div>
+            
+            <div class="project-card">
+                <img src="micrometer_stand.png" alt="Micrometer Stand CAD model">
+                <h3>Micrometer Stand</h3>
+                <p>Precision 3D CAD design of a micrometer stand, ensuring measurement accuracy in industrial environments.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="ashtray.png" alt="Ashtray CAD model">
+                <h3>Ashtray</h3>
+                <p>A detailed 3D CAD model demonstrating precise shape design and foundational modeling techniques.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="power_transmission.png" alt="Power Transmission Assembly CAD model">
+                <h3>Power Transmission Assy</h3>
+                <p>A comprehensive 3D assembly model of a power transmission system, illustrating the relationship between multiple mechanical parts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Let's Connect</h2>  
+        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Interested in collaborating or looking to view more of my source code?</p>
+        <div class="contact-links">
+            <a href="mailto:izzapro1234@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a> 
+            <a href="https://www.instagram.com/zaa.alym/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a> 
+            <a href="https://www.youtube.com/@IzzaAlyM_" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>  
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Izza Aly Maulana</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeToggleText = document.getElementById('themeToggleText');
+        const body = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggleText.textContent = '☀️'; // Sun icon for Light Mode toggle
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggleText.textContent = '🌙'; // Moon icon for Dark Mode toggle
+            }
+        });
+
+        // Logika Menu Burger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        // Buka/Tutup menu saat tombol burger diklik
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Otomatis tutup menu burger saat salah satu link diklik (khusus di HP)
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
